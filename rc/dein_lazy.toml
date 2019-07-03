@@ -1,0 +1,21 @@
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+
+[[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-go'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-jedi'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'wokalski/autocomplete-flow'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+on_ft = 'javascript'

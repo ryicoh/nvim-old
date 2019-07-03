@@ -36,3 +36,27 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+
+nnoremap ; :
+nnoremap : ;
+
+set hidden
+set number
+set tabstop=4
+set expandtab
+set shiftwidth=4
+set autoindent
+set belloff=all
+set splitright
+set clipboard=unnamed
+set hls
+
+
+let g:deoplete#enable_at_startup = 1
+noremap <C-n> :NERDTreeToggle<CR>
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
