@@ -19,7 +19,7 @@ if dein#load_state(s:dein_dir)
 
   " プラグインリストを収めた TOML ファイル
   " 予め TOML ファイル（後述）を用意しておく
-  let g:rc_dir    = expand('~/.vim/rc')
+  let g:rc_dir    = expand('~/.config/nvim/rc')
   let s:toml      = g:rc_dir . '/dein.toml'
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
@@ -50,10 +50,10 @@ set belloff=all
 set splitright
 set clipboard=unnamed
 set hls
+syntax on
 
-
-let g:deoplete#enable_at_startup = 1
-noremap <C-n> :NERDTreeToggle<CR>
+noremap <Esc><Esc> :<C-u>nohlsearch<CR><Esc>
+noremap <C-n> :<C-u>NERDTreeToggle<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j

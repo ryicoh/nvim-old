@@ -19,3 +19,7 @@ on_ft = 'javascript'
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
 on_ft = 'javascript'
+
+[[plugins]]
+repo = "cespare/vim-toml.git"
+
