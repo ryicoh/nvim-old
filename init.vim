@@ -59,6 +59,7 @@ syntax on
 
 noremap <Esc><Esc> :<C-u>nohlsearch<CR><Esc>
 noremap <C-n> :<C-u>NERDTreeToggle<CR>
+noremap <F1> :<C-u>NERDTreeToggle<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
