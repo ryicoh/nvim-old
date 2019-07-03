@@ -2,9 +2,6 @@
 repo = 'Shougo/neco-syntax'
 
 [[plugins]]
-repo = 'tbodt/deoplete-tabnine'
-
-[[plugins]]
 repo = 'deoplete-plugins/deoplete-go'
 on_ft = 'go'
 
@@ -21,5 +18,4 @@ repo = 'carlitux/deoplete-ternjs'
 on_ft = 'javascript'
 
 [[plugins]]
-repo = "cespare/vim-toml.git"
-
+repo = 'cespare/vim-toml.git'
