@@ -46,7 +46,6 @@ nnoremap ; :
 nnoremap : ;
 
 set hidden
-set number
 set tabstop=4
 set expandtab
 set shiftwidth=4
@@ -56,6 +55,14 @@ set splitright
 set clipboard=unnamed
 set hls
 syntax on
+
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 noremap <Esc><Esc> :<C-u>nohlsearch<CR><Esc>
 noremap <C-n> :<C-u>NERDTreeToggle<CR>
