@@ -1,4 +1,5 @@
-" vimrc に以下のように追記
+
+let g:python3_host_prog = expand('~/.pyenv/versions/3.7.3/bin/python')
 
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
@@ -65,11 +66,49 @@ augroup numbertoggle
 augroup END
 
 noremap <Esc><Esc> :<C-u>nohlsearch<CR><Esc>
-noremap <C-n> :<C-u>NERDTreeToggle<CR>
-noremap <F1> :<C-u>NERDTreeToggle<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+call denite#custom#var('file/rec', 'command',
+	\ ['ag', '--follow', '--nocolor', '--nogroup', '--ignore', 'node_modules', '--ignore', 'screenshots', '-g', ''])
+call denite#custom#source(
+	\ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
+
+call denite#custom#source('file/rec', 'matchers', ['matcher/fuzzy', 'matcher/hide_hidden_files'])
+
+call denite#custom#source(
+	\ 'file/rec', 'sorters', ['sorter/sublime'])
+
+let g:ale_fixers = {
+      \ 'javascript': ['eslint', 'prettier'],
+      \ 'vue': ['eslint', 'prettier'],
+      \ 'python': ['autopep8', 'isort'],
+      \ }
+let g:ale_fix_on_save = 1
+
+set wildmenu
+set wildmode=list:longest
+set signcolumn=yes
+set updatetime=1000
+
+nnoremap [git]  <Nop>
+nmap <C-f> [git]
+nnoremap [git]s :Gstatus<CR>
+nnoremap [git]a :Gwrite<CR>
+nnoremap [git]c :Gcommit<CR>
+nnoremap [git]b :Gblame<CR>
+nnoremap [git]d :Gdiff<CR>
+nnoremap [git]m :Gmerge<CR>
+nnoremap [git]j :GitGutterNextHunk<CR>
+nnoremap [git]k :GitGutterPrevHunk<CR>
+nnoremap [git]u :GitGutterUndoHunk<CR>
