@@ -2,7 +2,7 @@
 
 # install 方法
 
-[neovimのRelease](https://github.com/neovim/neovim/releases)から、Neovimの4.0以上を取ってくる
+[neovimのRelease](https://github.com/neovim/neovim/releases)から、Neovimの4.0以上をインストール
 
 ```
 pip install neovim
