@@ -112,3 +112,4 @@ nnoremap [git]m :Gmerge<CR>
 nnoremap [git]j :GitGutterNextHunk<CR>
 nnoremap [git]k :GitGutterPrevHunk<CR>
 nnoremap [git]u :GitGutterUndoHunk<CR>
+
