@@ -47,9 +47,9 @@ nnoremap ; :
 nnoremap : ;
 
 set hidden
-set tabstop=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
-set shiftwidth=4
 set autoindent
 set belloff=all
 set splitright

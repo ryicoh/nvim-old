@@ -2,3 +2,7 @@
 repo = "digitaltoad/vim-pug"
 on_ft = ['pug']
 
+[[plugins]]
+repo = "dNitro/vim-pug-complete"
+on_ft = ['pug']
+
