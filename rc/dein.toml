@@ -12,12 +12,12 @@ repo = 'Shougo/denite.nvim'
 depends = ['neomru.vim', 'neoyank.vim', 'nixprime/cpsm']
 on_event = 'BufRead'
 hook_add = '''
-    nnoremap <silent> <C-p> :<C-u>Denite file/rec -start-filter<CR>
-    nnoremap <silent> <C-l> :<C-u>Denite line<CR>
-    nnoremap <silent> <C-f> :<C-u>Denite grep<CR>
-    nnoremap <silent> <C-m> :<C-u>Denite file_mru<CR>
-    nnoremap <silent> <C-y> :<C-u>Denite neoyank<CR>
-    nnoremap <silent> <C-b> :<C-u>Denite buffer<CR>
+    nnoremap <silent> <C-p> :<C-u>Denite file/rec -start-filter -vertical-preview <CR>
+    nnoremap <silent> <C-l> :<C-u>Denite line -vertical-preview <CR>
+    nnoremap <silent> <C-f> :<C-u>Denite grep -vertical-preview <CR>
+    nnoremap <silent> <C-m> :<C-u>Denite file_mru -vertical-preview <CR>
+    nnoremap <silent> <C-y> :<C-u>Denite neoyank -vertical-preview <CR>
+    nnoremap <silent> <C-b> :<C-u>Denite buffer -vertical-preview <CR>
     autocmd FileType denite call s:denite_my_settings()
     function! s:denite_my_settings() abort
       nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
@@ -31,14 +31,15 @@ hook_add = '''
     function! s:denite_filter_my_settings() abort
       imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
     endfunction
-    let s:denite_win_width_percent = 0.85
-    let s:denite_win_height_percent = 0.7
+    let s:denite_win_width_percent = 0.48
+    let s:denite_win_margin_left_percent = 0.01
+    let s:denite_win_height_percent = 0.8
 
     " Change denite default options
     call denite#custom#option('default', {
         \ 'split': 'floating',
         \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
-        \ 'wincol': float2nr((&columns - (&columns * s:denite_win_width_percent)) / 2),
+        \ 'wincol': float2nr(&columns * s:denite_win_margin_left_percent),
         \ 'winheight': float2nr(&lines * s:denite_win_height_percent),
         \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
         \ })
