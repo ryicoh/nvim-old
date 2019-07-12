@@ -50,6 +50,7 @@ set belloff=all
 set splitright
 set clipboard=unnamed
 set hls
+set noswapfile
 syntax on
 
 set number relativenumber
