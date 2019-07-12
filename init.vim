@@ -1,6 +1,4 @@
 
-let g:python3_host_prog = expand('~/.pyenv/versions/3.7.3/bin/python')
-
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
 " dein.vim 本体
@@ -42,9 +40,6 @@ endif
 if dein#check_install()
   call dein#install()
 endif
-
-nnoremap ; :
-nnoremap : ;
 
 set hidden
 set tabstop=2
@@ -102,8 +97,10 @@ set signcolumn=yes
 set updatetime=1000
 
 nnoremap [git]  <Nop>
-nmap <C-f> [git]
+nmap <C-g> [git]
 nnoremap [git]s :Gstatus<CR>
+nnoremap [git]g :Gstatus<CR>
+nnoremap [git]<C-g> :Gstatus<CR>
 nnoremap [git]a :Gwrite<CR>
 nnoremap [git]c :Gcommit<CR>
 nnoremap [git]b :Gblame<CR>
@@ -113,3 +110,5 @@ nnoremap [git]j :GitGutterNextHunk<CR>
 nnoremap [git]k :GitGutterPrevHunk<CR>
 nnoremap [git]u :GitGutterUndoHunk<CR>
 
+command W w
+command Q q
