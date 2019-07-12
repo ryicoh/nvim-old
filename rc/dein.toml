@@ -14,7 +14,7 @@ on_event = 'BufRead'
 hook_add = '''
     nnoremap <silent> <C-p> :<C-u>Denite file/rec -start-filter<CR>
     nnoremap <silent> <C-l> :<C-u>Denite line<CR>
-    nnoremap <silent> <C-g> :<C-u>Denite grep<CR>
+    nnoremap <silent> <C-f> :<C-u>Denite grep<CR>
     nnoremap <silent> <C-m> :<C-u>Denite file_mru<CR>
     nnoremap <silent> <C-y> :<C-u>Denite neoyank<CR>
     nnoremap <silent> <C-b> :<C-u>Denite buffer<CR>
