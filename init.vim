@@ -89,6 +89,7 @@ let g:ale_fixers = {
       \ 'javascript': ['eslint', 'prettier'],
       \ 'vue': ['eslint', 'prettier'],
       \ 'python': ['autopep8', 'isort'],
+      \ 'php': ['phpcbf'],
       \ }
 let g:ale_fix_on_save = 1
 
@@ -113,3 +114,7 @@ nnoremap [git]u :GitGutterUndoHunk<CR>
 
 command W w
 command Q q
+
+nnoremap : ;
+nnoremap ; :
+
