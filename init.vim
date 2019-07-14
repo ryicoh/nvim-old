@@ -117,6 +117,3 @@ nnoremap [git]u :GitGutterUndoHunk<CR>
 command W w
 command Q q
 
-nnoremap : ;
-nnoremap ; :
-
