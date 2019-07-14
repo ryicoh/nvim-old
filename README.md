@@ -9,5 +9,8 @@
 pip install neovim
 brew install ag
 
+composer global require "squizlabs/php_codesniffer=*"
+npm install --global eslint
+
 git clone https://github.com/ryicoh/nvim ~/.config/nvim
 ```
