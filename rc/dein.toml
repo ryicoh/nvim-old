@@ -18,14 +18,14 @@ hook_add = '''
     nnoremap <silent> <C-b>      :<C-u>Denite buffer -vertical-preview -auto-action=preview <CR>
     nnoremap <silent> <C-y>      :<C-u>Denite neoyank <CR>
 
-    nnoremap <silent> <C-u>f     :<C-u>DeniteCursorWord grep -vertical-preview -auto-action=preview <CR>
-    nnoremap <silent> <C-u><C-f> :<C-u>DeniteCursorWord grep -vertical-preview -auto-action=preview <CR>
-    nnoremap <silent> <C-u>r     :<C-u>Denite -resume -vertical-preview -auto-action=preview <CR>
-    nnoremap <silent> <C-u><C-r> :<C-u>Denite -resume -vertical-preview -auto-action=preview <CR>
-    nnoremap <silent> <C-u>l     :<C-u>Denite -resume -immediately -select=+1 <CR>
-    nnoremap <silent> <C-u><C-l> :<C-u>Denite -resume -immediately -select=+1 <CR>
-    nnoremap <silent> <C-u>h     :<C-u>Denite -resume -immediately -select=-1 <CR>
-    nnoremap <silent> <C-u><C-h> :<C-u>Denite -resume -immediately -select=-1 <CR>
+    nnoremap <silent> <C-w>f     :<C-u>DeniteCursorWord grep -vertical-preview -auto-action=preview <CR>
+    nnoremap <silent> <C-w><C-f> :<C-u>DeniteCursorWord grep -vertical-preview -auto-action=preview <CR>
+    nnoremap <silent> <C-w>r     :<C-u>Denite -resume -vertical-preview -auto-action=preview <CR>
+    nnoremap <silent> <C-w><C-r> :<C-u>Denite -resume -vertical-preview -auto-action=preview <CR>
+    nnoremap <silent> <C-w>l     :<C-u>Denite -resume -immediately -select=+1 <CR>
+    nnoremap <silent> <C-w><C-l> :<C-u>Denite -resume -immediately -select=+1 <CR>
+    nnoremap <silent> <C-w>h     :<C-u>Denite -resume -immediately -select=-1 <CR>
+    nnoremap <silent> <C-w><C-h> :<C-u>Denite -resume -immediately -select=-1 <CR>
 
     autocmd FileType denite call s:denite_my_settings()
     function! s:denite_my_settings() abort

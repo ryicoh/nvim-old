@@ -55,12 +55,6 @@ syntax on
 
 set number relativenumber
 
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
 noremap <Esc><Esc> :<C-u>nohlsearch<CR><Esc>
 
 nnoremap <C-h> <C-w>h
@@ -102,17 +96,26 @@ set updatetime=1000
 
 nnoremap [git]  <Nop>
 nmap <C-g> [git]
-nnoremap [git]s :Gstatus<CR>
-nnoremap [git]g :Gstatus<CR>
+nnoremap [git]s     :Gstatus<CR>
+nnoremap [git]<C-s> :Gstatus<CR>
+nnoremap [git]g     :Gstatus<CR>
 nnoremap [git]<C-g> :Gstatus<CR>
-nnoremap [git]a :Gwrite<CR>
-nnoremap [git]c :Gcommit<CR>
-nnoremap [git]b :Gblame<CR>
-nnoremap [git]d :Gdiff<CR>
-nnoremap [git]m :Gmerge<CR>
-nnoremap [git]j :GitGutterNextHunk<CR>
-nnoremap [git]k :GitGutterPrevHunk<CR>
-nnoremap [git]u :GitGutterUndoHunk<CR>
+nnoremap [git]a     :Gwrite<CR>
+nnoremap [git]<C-a> :Gwrite<CR>
+nnoremap [git]c     :Gcommit<CR>
+nnoremap [git]<C-c> :Gcommit<CR>
+nnoremap [git]b     :Gblame<CR>
+nnoremap [git]<C-b> :Gblame<CR>
+nnoremap [git]d     :Gdiff<CR>
+nnoremap [git]<C-d> :Gdiff<CR>
+nnoremap [git]m     :Gmerge<CR>
+nnoremap [git]<C-m> :Gmerge<CR>
+nnoremap [git]j     :GitGutterNextHunk<CR>
+nnoremap [git]<C-j> :GitGutterNextHunk<CR>
+nnoremap [git]k     :GitGutterPrevHunk<CR>
+nnoremap [git]<C-k> :GitGutterPrevHunk<CR>
+nnoremap [git]u     :GitGutterUndoHunk<CR>
+nnoremap [git]<C-u> :GitGutterUndoHunk<CR>
 
 command W w
 command Q q
