@@ -122,3 +122,5 @@ rev  = 'colorize-template-strings'
 [[plugins]]
 repo = "peitalin/vim-jsx-typescript"
 
+[[plugins]]
+repo = "editorconfig/editorconfig-vim"
