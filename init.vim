@@ -84,17 +84,23 @@ let g:ale_php_phpcbf_standard = 'psr2'
 let g:ale_fixers = {
       \ 'javascript': ['eslint', 'prettier'],
       \ 'vue': ['eslint', 'prettier'],
-      \ 'python': ['autopep8', 'isort'],
+      \ 'python': ['autopep8', 'black', 'isort'],
       \ 'php': ['phpcbf'],
       \ }
+
 let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_use_local_config = 1
+
+let g:ale_completion_enabled = 1
 
 set wildmenu
 set wildmode=list:longest
 set signcolumn=yes
 set updatetime=1000
 
-nnoremap [git]  <Nop>
+autocmd MyAutoCmd FileType typescript nnoremap <buffer> <C-]> :<C-u>ALEGoToDefinitionInVSplit <CR>
+
+nnoremap [git] <Nop>
 nmap <C-g> [git]
 nnoremap [git]s     :Gstatus<CR>
 nnoremap [git]<C-s> :Gstatus<CR>

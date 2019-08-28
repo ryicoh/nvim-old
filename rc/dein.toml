@@ -58,6 +58,7 @@ hook_add = '''
 repo = 'scrooloose/nerdtree'
 hook_add = '''
     nnoremap <silent><C-n> :<C-u>NERDTreeToggle<CR>
+    nnoremap <leader>n :<C-u>NERDTreeFind<CR>
 '''
 
 [[plugins]]
@@ -110,4 +111,14 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'posva/vim-vue'
+
+[[plugins]]
+repo = "leafgarland/typescript-vim"
+
+[[plugins]]
+repo = 'delphinus35/typescript-vim'
+rev  = 'colorize-template-strings'
+
+[[plugins]]
+repo = "peitalin/vim-jsx-typescript"
 
