@@ -79,18 +79,23 @@ call denite#custom#source('file/rec', 'matchers', ['matcher/fuzzy', 'matcher/hid
 call denite#custom#source(
 	\ 'file/rec', 'sorters', ['sorter/sublime'])
 
-let g:ale_php_phpcbf_standard = 'psr2'
+"let g:ale_php_phpcbf_standard = 'psr2'
+"
+let g:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ 'vue': ['eslint'],
+      \ 'python': ['autopep8', 'black', 'isort'],
+      \ 'php': ['phpcbf'],
+      \ }
 
 let g:ale_fixers = {
-      \ 'javascript': ['eslint', 'prettier'],
-      \ 'vue': ['eslint', 'prettier'],
+      \ 'javascript': ['eslint'],
+      \ 'vue': ['eslint'],
       \ 'python': ['autopep8', 'black', 'isort'],
       \ 'php': ['phpcbf'],
       \ }
 
 let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_use_local_config = 1
-
 let g:ale_completion_enabled = 1
 
 set wildmenu
@@ -122,6 +127,14 @@ nnoremap [git]k     :GitGutterPrevHunk<CR>
 nnoremap [git]<C-k> :GitGutterPrevHunk<CR>
 nnoremap [git]u     :GitGutterUndoHunk<CR>
 nnoremap [git]<C-u> :GitGutterUndoHunk<CR>
+nnoremap [git]t     :<C-u>:GoTest<CR>
+nnoremap [git]<C-t> :<C-u>:GoTest<CR>
+nnoremap [git]r     :<C-u>:GoRun<CR>
+nnoremap [git]<C-r> :<C-u>:GoRun<CR>
+nnoremap [git]n     :<C-u>:cnext<CR>
+nnoremap [git]<C-n> :<C-u>:cnext<CR>
+nnoremap [git]p     :<C-u>:cprev<CR>
+nnoremap [git]<C-p> :<C-u>:cprev<CR>
 
 command W w
 command Q q

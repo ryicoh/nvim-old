@@ -100,10 +100,6 @@ let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 '''
 
 [[plugins]]
-repo = 'othree/yajs.vim'
-on_ft = ['javascript', 'vue']
-
-[[plugins]]
 repo = 'w0rp/ale'
 
 [[plugins]]
@@ -111,16 +107,6 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'posva/vim-vue'
-
-[[plugins]]
-repo = "leafgarland/typescript-vim"
-
-[[plugins]]
-repo = 'delphinus35/typescript-vim'
-rev  = 'colorize-template-strings'
-
-[[plugins]]
-repo = "peitalin/vim-jsx-typescript"
 
 [[plugins]]
 repo = "editorconfig/editorconfig-vim"
