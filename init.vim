@@ -136,6 +136,9 @@ nnoremap [git]<C-n> :<C-u>:cnext<CR>
 nnoremap [git]p     :<C-u>:cprev<CR>
 nnoremap [git]<C-p> :<C-u>:cprev<CR>
 
+nnoremap ; :
+nnoremap : ;
+
 command W w
 command Q q
 
