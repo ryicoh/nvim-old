@@ -15,7 +15,6 @@ hook_add = '''
     nnoremap <silent> <C-p>      :<C-u>Denite file/rec -start-filter -vertical-preview -auto-action=preview <CR>
     nnoremap <silent> <C-f>      :<C-u>Denite grep -vertical-preview -auto-action=preview <CR>
     nnoremap <silent> <C-m>      :<C-u>Denite file_mru -vertical-preview -auto-action=preview <CR>
-    nnoremap <silent> <C-b>      :<C-u>Denite buffer -vertical-preview -auto-action=preview <CR>
     nnoremap <silent> <C-y>      :<C-u>Denite neoyank <CR>
 
     nnoremap <silent> <C-w>f     :<C-u>DeniteCursorWord grep -vertical-preview -auto-action=preview <CR>
@@ -58,7 +57,7 @@ hook_add = '''
 repo = 'scrooloose/nerdtree'
 hook_add = '''
     nnoremap <silent><C-n> :<C-u>NERDTreeToggle<CR>
-    nnoremap <leader>n :<C-u>NERDTreeFind<CR>
+    nnoremap <silent><C-b> :<C-u>NERDTreeFind<CR>
 '''
 
 [[plugins]]
