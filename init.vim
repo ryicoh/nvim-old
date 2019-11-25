@@ -1,4 +1,3 @@
-
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
 " dein.vim 本体
@@ -80,23 +79,22 @@ call denite#custom#source(
 	\ 'file/rec', 'sorters', ['sorter/sublime'])
 
 "let g:ale_php_phpcbf_standard = 'psr2'
+"let g:ale_linters = {
+"      \ 'javascript': ['eslint'],
+"      \ 'vue': ['eslint'],
+"      \ 'python': ['autopep8', 'black', 'isort'],
+"      \ 'php': ['phpcbf'],
+"      \ }
 "
-let g:ale_linters = {
-      \ 'javascript': ['eslint'],
-      \ 'vue': ['eslint'],
-      \ 'python': ['autopep8', 'black', 'isort'],
-      \ 'php': ['phpcbf'],
-      \ }
+"let g:ale_fixers = {
+"      \ 'javascript': ['eslint'],
+"      \ 'vue': ['eslint'],
+"      \ 'python': ['autopep8', 'black', 'isort'],
+"      \ 'php': ['phpcbf'],
+"      \ }
 
-let g:ale_fixers = {
-      \ 'javascript': ['eslint'],
-      \ 'vue': ['eslint'],
-      \ 'python': ['autopep8', 'black', 'isort'],
-      \ 'php': ['phpcbf'],
-      \ }
-
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
+"let g:ale_fix_on_save = 1
+"let g:ale_completion_enabled = 1
 
 set wildmenu
 set wildmode=list:longest
@@ -135,6 +133,8 @@ nnoremap [git]n     :<C-u>:cnext<CR>
 nnoremap [git]<C-n> :<C-u>:cnext<CR>
 nnoremap [git]p     :<C-u>:cprev<CR>
 nnoremap [git]<C-p> :<C-u>:cprev<CR>
+
+tnoremap <C-[> <C-\><C-n>
 
 nnoremap ; :
 nnoremap : ;
