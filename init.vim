@@ -61,80 +61,85 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+" Ripgrep command on grep source
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
 call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep', '--no-heading'])
 
-call denite#custom#var('file/rec', 'command',
-	\ ['ag', '--follow', '--nocolor', '--nogroup', '--ignore', 'node_modules', '--ignore', 'screenshots', '-g', ''])
-call denite#custom#source(
-	\ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
+call denite#custom#source('file/old', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
+call denite#custom#source('tag', 'matchers', ['matcher/substring'])
+call denite#custom#source('file/rec', 'matchers', ['matcher/fuzzy'])
+call denite#custom#source('file/old,ghq', 'converters', ['converter/relative_word', 'converter/relative_abbr'])
 
-call denite#custom#source('file/rec', 'matchers', ['matcher/fuzzy', 'matcher/hide_hidden_files'])
+call denite#custom#alias('source', 'file/rec/git', 'file/rec')
+call denite#custom#var('file/rec/git', 'command', ['git', 'ls-files', '-co', '--exclude-standard'])
 
-call denite#custom#source(
-	\ 'file/rec', 'sorters', ['sorter/sublime'])
 
-"let g:ale_php_phpcbf_standard = 'psr2'
-"let g:ale_linters = {
-"      \ 'javascript': ['eslint'],
-"      \ 'vue': ['eslint'],
-"      \ 'python': ['autopep8', 'black', 'isort'],
-"      \ 'php': ['phpcbf'],
-"      \ }
-"
-"let g:ale_fixers = {
-"      \ 'javascript': ['eslint'],
-"      \ 'vue': ['eslint'],
-"      \ 'python': ['autopep8', 'black', 'isort'],
-"      \ 'php': ['phpcbf'],
-"      \ }
+let g:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ 'typescript.tsx': ['eslint'],
+      \ 'typescript': ['eslint'],
+      \ 'vue': ['eslint'],
+      \ 'python': ['autopep8', 'black', 'isort'],
+      \ 'php': ['phpcbf'],
+      \ }
 
-"let g:ale_fix_on_save = 1
-"let g:ale_completion_enabled = 1
+let g:ale_fixers = {
+      \ 'javascript': ['eslint'],
+      \ 'typescript.tsx': ['eslint'],
+      \ 'typescript': ['eslint'],
+      \ 'vue': ['eslint'],
+      \ 'python': ['autopep8', 'black', 'isort'],
+      \ 'php': ['phpcbf'],
+      \ }
 
-set wildmenu
-set wildmode=list:longest
-set signcolumn=yes
-set updatetime=1000
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
 
 autocmd MyAutoCmd FileType typescript nnoremap <buffer> <C-]> :<C-u>ALEGoToDefinitionInVSplit <CR>
 
-nnoremap [git] <Nop>
-nmap <C-g> [git]
-nnoremap [git]s     :Gstatus<CR>
-nnoremap [git]<C-s> :Gstatus<CR>
-nnoremap [git]g     :Gstatus<CR>
-nnoremap [git]<C-g> :Gstatus<CR>
-nnoremap [git]a     :Gwrite<CR>
-nnoremap [git]<C-a> :Gwrite<CR>
-nnoremap [git]c     :Gcommit<CR>
-nnoremap [git]<C-c> :Gcommit<CR>
-nnoremap [git]b     :Gblame<CR>
-nnoremap [git]<C-b> :Gblame<CR>
-nnoremap [git]d     :Gdiff<CR>
-nnoremap [git]<C-d> :Gdiff<CR>
-nnoremap [git]m     :Gmerge<CR>
-nnoremap [git]<C-m> :Gmerge<CR>
-nnoremap [git]j     :GitGutterNextHunk<CR>
-nnoremap [git]<C-j> :GitGutterNextHunk<CR>
-nnoremap [git]k     :GitGutterPrevHunk<CR>
-nnoremap [git]<C-k> :GitGutterPrevHunk<CR>
-nnoremap [git]u     :GitGutterUndoHunk<CR>
-nnoremap [git]<C-u> :GitGutterUndoHunk<CR>
-nnoremap [git]t     :<C-u>:GoTest<CR>
-nnoremap [git]<C-t> :<C-u>:GoTest<CR>
-nnoremap [git]r     :<C-u>:GoRun<CR>
-nnoremap [git]<C-r> :<C-u>:GoRun<CR>
-nnoremap [git]n     :<C-u>:cnext<CR>
-nnoremap [git]<C-n> :<C-u>:cnext<CR>
-nnoremap [git]p     :<C-u>:cprev<CR>
-nnoremap [git]<C-p> :<C-u>:cprev<CR>
+nnoremap [gitorgo] <Nop>
+nmap <C-g> [gitorgo]
+nnoremap [gitorgo]s     :Gstatus<CR>
+nnoremap [gitorgo]<C-s> :Gstatus<CR>
+nnoremap [gitorgo]g     :Gstatus<CR>
+nnoremap [gitorgo]<C-g> :Gstatus<CR>
+nnoremap [gitorgo]a     :Gwrite<CR>
+nnoremap [gitorgo]<C-a> :Gwrite<CR>
+nnoremap [gitorgo]c     :Gcommit<CR>
+nnoremap [gitorgo]<C-c> :Gcommit<CR>
+nnoremap [gitorgo]b     :Gblame<CR>
+nnoremap [gitorgo]<C-b> :Gblame<CR>
+nnoremap [gitorgo]d     :Gdiff<CR>
+nnoremap [gitorgo]<C-d> :Gdiff<CR>
+nnoremap [gitorgo]m     :Gmerge<CR>
+nnoremap [gitorgo]<C-m> :Gmerge<CR>
+nnoremap [gitorgo]j     :GitGutterNextHunk<CR>
+nnoremap [gitorgo]<C-j> :GitGutterNextHunk<CR>
+nnoremap [gitorgo]k     :GitGutterPrevHunk<CR>
+nnoremap [gitorgo]<C-k> :GitGutterPrevHunk<CR>
+nnoremap [gitorgo]u     :GitGutterUndoHunk<CR>
+nnoremap [gitorgo]<C-u> :GitGutterUndoHunk<CR>
+nnoremap [gitorgo]t     :<C-u>:GoTest<CR>
+nnoremap [gitorgo]<C-t> :<C-u>:GoTest<CR>
+nnoremap [gitorgo]r     :<C-u>:GoRun<CR>
+nnoremap [gitorgo]<C-r> :<C-u>:GoRun<CR>
+nnoremap [gitorgo]l     :<C-u>:GoLint<CR>
+nnoremap [gitorgo]<C-l> :<C-u>:GoLint<CR>
+nnoremap [gitorgo]e     :<C-u>:GoIfErr<CR>
+nnoremap [gitorgo]<C-e> :<C-u>:GoIfErr<CR>
+inoremap [gitorgo]e     <Esc>:<C-u>:GoIfErr<CR>i
+inoremap [gitorgo]<C-e> <Esc>:<C-u>:GoIfErr<CR>i
+nnoremap [gitorgo]n     :<C-u>:cnext<CR>
+nnoremap [gitorgo]<C-n> :<C-u>:cnext<CR>
+nnoremap [gitorgo]p     :<C-u>:cprev<CR>
+nnoremap [gitorgo]<C-p> :<C-u>:cprev<CR>
 
 tnoremap <C-[> <C-\><C-n>
+nnoremap <C-t> :<C-u>split<CR><c-w>-<c-w>-<c-w>-<c-w>-<c-w>-<c-w>-<c-w>-<c-w>-:terminal<CR>i
 
 nnoremap ; :
 nnoremap : ;
@@ -142,3 +147,7 @@ nnoremap : ;
 command W w
 command Q q
 
+tnoremap <C-[> <C-\><C-n>
+
+autocmd QuickFixCmdPost * :copen
+:command M silent make
