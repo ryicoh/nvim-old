@@ -6,3 +6,22 @@ on_ft = ['pug']
 repo = "dNitro/vim-pug-complete"
 on_ft = ['pug']
 
+[[plugins]]
+repo = "keith/swift.vim"
+on_ft = ['swift']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+
+[[plugins]]
+repo =  'peitalin/vim-jsx-typescript'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'google/vim-maktaba'
+on_ft = ['bzl']
+
+[[plugins]]
+repo = 'bazelbuild/vim-bazel'
+on_ft = ['bzl']

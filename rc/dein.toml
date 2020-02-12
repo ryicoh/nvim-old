@@ -8,9 +8,12 @@ repo = 'Shougo/neomru.vim'
 repo = 'Shougo/neoyank.vim'
 
 [[plugins]]
+repo = 'nixprime/cpsm'
+build = 'sh -c "PY3=ON ./install.sh"'
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 depends = ['neomru.vim', 'neoyank.vim', 'nixprime/cpsm']
-on_event = 'BufRead'
 hook_add = '''
     nnoremap <silent> <C-p>      :<C-u>Denite file/rec -start-filter -vertical-preview -auto-action=preview <CR>
     nnoremap <silent> <C-f>      :<C-u>Denite grep -vertical-preview -auto-action=preview <CR>
@@ -39,25 +42,13 @@ hook_add = '''
     function! s:denite_filter_my_settings() abort
       imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
     endfunction
-    let s:denite_win_width_percent = 0.48
-    let s:denite_win_margin_left_percent = 0.01
-    let s:denite_win_height_percent = 0.8
-
-    " Change denite default options
-    call denite#custom#option('default', {
-        \ 'split': 'floating',
-        \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
-        \ 'wincol': float2nr(&columns * s:denite_win_margin_left_percent),
-        \ 'winheight': float2nr(&lines * s:denite_win_height_percent),
-        \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
-        \ })
 '''
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
-    nnoremap <silent><C-n> :<C-u>NERDTreeToggle<CR>
-    nnoremap <silent><C-b> :<C-u>NERDTreeFind<CR>
+  nnoremap <silent><C-n> :<C-u>NERDTreeToggle<CR>
+  nnoremap <silent><C-b> :<C-u>NERDTreeFind<CR>
 '''
 
 [[plugins]]
@@ -97,29 +88,39 @@ repo = 'tpope/vim-surround'
 repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_add = '''
-let g:go_fmt_command = 'goimports'
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_array_whitespace_error = 1
-let g:go_highlight_chan_whitespace_error = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_space_tab_error = 1
-let g:go_highlight_trailing_whitespace_error = 1
-let g:go_highlight_function_parameters = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_variable_declarations = 1
-let g:go_highlight_variable_assignments = 1
-
-"let g:go_list_height = 20
-"let g:go_highlight_build_constraints = 1
-"let g:go_metalinter_autosave = 1
-"let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-"let g:syntastic_go_checkers = ['golint', 'govet', 'golangci-lint']
+  let g:go_fmt_command = 'goimports'
+  let g:go_metalinter_autosave = 0
+  let g:go_metalinter_autosave_enabled = [
+    \ 'vet', 'errcheck', 'gosec', 'unconvert',
+    \ ]
+  let g:go_metalinter_enabled = [
+    \ 'vet', 'errcheck', 
+    \ 'rowserrcheck', 'gosec',
+    \ 'interfacer', 'unconvert',
+    \ 'dupl', 'goconst',
+    \ 'gocyclo', 'gocognit',
+    \ 'maligned', 'depguard',
+    \ 'misspell', 
+    \ 'unparam', 'dogsled',
+    \ 'nakedret', 'prealloc',
+    \ 'scopelint', 'gocritic',
+    \ 'gochecknoinits', 'gochecknoglobals',
+    \ ]
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_array_whitespace_error = 1
+  let g:go_highlight_chan_whitespace_error = 1
+  let g:go_highlight_extra_types = 1
+  let g:go_highlight_space_tab_error = 1
+  let g:go_highlight_trailing_whitespace_error = 1
+  let g:go_highlight_function_parameters = 1
+  let g:go_highlight_function_calls = 1
+  let g:go_highlight_types = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_variable_declarations = 1
+  let g:go_highlight_variable_assignments = 1
 '''
 
 #[[plugins]]
@@ -138,16 +139,25 @@ repo = "editorconfig/editorconfig-vim"
 repo = 'simeji/winresizer'
 
 [[plugins]]
-repo = "keith/swift.vim"
+repo = 'sheerun/vim-polyglot'
+hook_add = '''
+  let g:polyglot_disabled = ['markdown', 'tsx', 'typescript', 'csv']
+'''
 
 [[plugins]]
-repo = "scrooloose/syntastic"
+repo = 'dense-analysis/ale'
+hook_add = '''
+  let g:ale_completion_enabled = 1
+  let g:ale_fix_on_save = 1
+  let g:ale_linters = {
+  \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \   'javascript': ['eslint'],
+  \   'typescript': ['eslint', 'prettier'],
+  \}
 
-[[plugins]]
-repo = "kballard/vim-swift"
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-
-[[plugins]]
-repo =  'peitalin/vim-jsx-typescript'
+  let g:ale_fixers = {
+  \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \   'javascript': ['eslint'],
+  \   'typescript': ['eslint', 'prettier'],
+  \}
+'''
